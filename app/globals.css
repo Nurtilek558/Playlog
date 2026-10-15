@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0e0f13;
+  background-image:
+    radial-gradient(ellipse 60% 40% at 15% 0%, rgba(154, 159, 224, 0.07), transparent 70%);
+  background-attachment: fixed;
+  color: #e4e5ea;
+}
+
+:focus-visible {
+  outline: 2px solid #8cbfa6;
+  outline-offset: 3px;
+}
+
+@layer utilities {
+  .grid-backdrop {
+    background-image:
+      linear-gradient(rgba(154, 159, 224, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(154, 159, 224, 0.04) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
+  .scanlines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.015) 0,
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  }
+
+  .clip-corner {
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
